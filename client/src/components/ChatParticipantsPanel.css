@@ -1,0 +1,237 @@
+.panel-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 999;
+}
+
+.chat-participants-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 400px;
+    /* width: 450px; */
+    height: 100vh;
+    background: var(--white);
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-tabs {
+    display: flex;
+    border-bottom: 2px solid var(--light-gray);
+}
+
+.tab-button {
+    flex: 1;
+    padding: 1rem;
+    background: none;
+    border: none;
+    font-weight: 600;
+    color: var(--medium-gray);
+    cursor: pointer;
+    position: relative;
+    transition: all var(--transition-normal);
+}
+
+.tab-button.active {
+    color: var(--primary);
+}
+
+.tab-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--primary);
+}
+
+/* Participants Tab */
+.participants-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--spacing-md);
+}
+
+.participants-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background: var(--light-gray);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+.header-label {
+    font-weight: 600;
+    color: var(--dark-gray);
+    font-size: 0.9rem;
+}
+
+.participants-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.no-participants {
+    text-align: center;
+    color: var(--medium-gray);
+    padding: var(--spacing-xl);
+}
+
+.participant-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: var(--white);
+    border: 1px solid var(--light-gray);
+    border-radius: var(--radius-md);
+}
+
+.participant-name {
+    font-weight: 500;
+    color: var(--dark-gray);
+}
+
+.kick-button {
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-weight: 600;
+    cursor: pointer;
+    /* text-decoration: underline; */
+    /* font-size: 0.9rem; */
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-normal);
+}
+
+.kick-button:hover {
+    background: rgba(119, 101, 218, 0.1);
+}
+
+/* Chat Tab */
+.chat-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.no-messages {
+    text-align: center;
+    color: var(--medium-gray);
+    padding: var(--spacing-xl);
+    font-style: italic;
+}
+
+.chat-message {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.message-user {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.chat-message.teacher-msg .message-user {
+    color: var(--primary);
+}
+
+.chat-message.student-msg {
+    align-items: flex-end;
+}
+
+.chat-message.student-msg .message-user {
+    color: #E91E63;
+}
+
+.message-bubble {
+    background: var(--dark-gray);
+    color: var(--white);
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-md);
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.chat-message.student-msg .message-bubble {
+    background: var(--primary);
+}
+
+.send-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+.chat-input-container {
+    padding: var(--spacing-md);
+    border-top: 1px solid var(--light-gray);
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.chat-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--light-gray);
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+}
+
+.send-button {
+    padding: 0.75rem 1.5rem;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.send-button:hover {
+    background: var(--primary-dark);
+}
+
+/* Animations */
+.slide-in-right {
+    animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 640px) {
+    .chat-participants-panel {
+        width: 100%;
+    }
+}

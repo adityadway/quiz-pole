@@ -1,0 +1,12 @@
+version: 1
+services:
+  - type: web
+    name: quiz-pole-backend
+    env: node
+    buildCommand: npm install
+    startCommand: node index.js
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: CLIENT_URL
+        sync: false
